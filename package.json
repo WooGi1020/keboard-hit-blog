@@ -42,9 +42,9 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "pnpm run lint",
-      "pnpm run format"
+    "app/**/*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
     ]
   }
 }
