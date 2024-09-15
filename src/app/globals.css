@@ -83,4 +83,20 @@
       transfrom: translateY(0px);
     }
   }
+
+  .text-animation {
+    animation: bounce 2s ease-in-out infinite;
+  }
+
+  @keyframes bounce {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transfrom: translateY(0px);
+    }
+  }
 }
