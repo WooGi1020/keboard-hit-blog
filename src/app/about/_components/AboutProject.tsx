@@ -11,14 +11,21 @@ function AboutProject() {
           return (
             <>
               <a
-                className="relative flex gap-2 w-full h-[150px] border border-input rounded-xl p-5 pl-10 hover:bg-accent/80 overflow-hidden items-center"
+                className="relative flex gap-2 w-full h-[170px] border border-input rounded-xl p-4 pl-8 hover:bg-accent/80 overflow-hidden items-center"
                 href={project.link}
                 target="_blank"
               >
                 <div>
-                  <span className="text-lg font-semibold">{project.name}</span>
-                  <p className="text-[14px]">{project.description}</p>
-                  <span className="text-[13px]">{project.period}</span>
+                  <span className="text-lg font-semibold mb-2">{project.name}</span>
+                  <p className="text-[12px]">{project.description}</p>
+                  <span className="text-[12px]">{project.period}</span>
+                  <div className="flex gap-2 mt-2 w-[500px] flex-wrap">
+                    {project.tag.map((tag) => {
+                      return (
+                        <span className="text-[12px] bg-input rounded-md px-2 py-1">{tag}</span>
+                      );
+                    })}
+                  </div>
                 </div>
                 <div className="size-[250px] absolute right-[-70px] rounded-full border border-input">
                   <Image
