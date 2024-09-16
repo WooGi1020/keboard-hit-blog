@@ -7,9 +7,9 @@ function AboutHistory() {
       <div className="flex flex-col gap-3">
         {ABOUT_ME.history.map((history) => {
           return (
-            <div className="flex flex-col">
+            <div className="flex flex-col border gap-2 border-input p-8 rounded-xl">
               <span className="text-lg ">{history.do}</span>
-              <span className="text-sm">{history.period}</span>
+              <span className="text-md">{history.period}</span>
             </div>
           );
         })}
