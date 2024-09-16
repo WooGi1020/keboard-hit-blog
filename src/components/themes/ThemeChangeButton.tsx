@@ -15,7 +15,11 @@ function ThemeChangeButton() {
         setTheme(theme === "dark" ? "white" : "dark");
       }}
     >
-      {theme === "dark" ? <Moon className="size-5" /> : <Sun className="size-5" />}
+      {theme === "dark" ? (
+        <Moon className="size-5 fill-yellow-300 stroke-yellow-300" />
+      ) : (
+        <Sun className="size-5 fill-yellow-300 stroke-gray-400" />
+      )}
     </Button>
   );
 }

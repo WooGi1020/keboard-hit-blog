@@ -6,7 +6,9 @@ import { Button } from "@/components/ui/button";
 import { usePathname } from "next/navigation";
 import dynamic from "next/dynamic";
 
-const ThemeChangeButton = dynamic(() => import("@/components/themes/ThemeChangeButton"));
+const ThemeChangeButton = dynamic(() => import("../themes/ThemeChangeButton"), {
+  ssr: false,
+});
 
 function HeaderNav() {
   const pathname = usePathname();
@@ -14,7 +16,7 @@ function HeaderNav() {
   return (
     <nav className="flex justify-between items-center h-full w-full max-w-[1232px] px-[16px] mx-auto">
       <div className="flex gap-3 items-center">
-        <Link href="/">
+        <Link href="/posts">
           <h1 className="text-[18px] font-semibold">키보드 두들기며 먹고살기</h1>
         </Link>
         <Link
