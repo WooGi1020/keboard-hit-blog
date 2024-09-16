@@ -22,11 +22,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko">
+    <html lang="ko" suppressHydrationWarning>
       <body className={pretendardFont.className}>
         <ThemeProvider attribute="class" defaultTheme="dark">
           <Header />
-          <main className="mt-[80px] max-w-[1232px] px-[16px] mx-auto">{children}</main>
+          <main className="mt-[80px] max-w-[1000px] mx-auto px-[16px] w-full">{children}</main>
         </ThemeProvider>
       </body>
     </html>
