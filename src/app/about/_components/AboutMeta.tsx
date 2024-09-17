@@ -15,7 +15,7 @@ function AboutMeta() {
             <p className="text-lg font-medium">{ABOUT_ME.address}</p>
           </div>
         </div>
-        <Avatar>
+        <Avatar className="ml-3">
           <AvatarImage src="https://avatars.githubusercontent.com/u/113000290?v=4" />
           <AvatarFallback>우기</AvatarFallback>
         </Avatar>

@@ -36,7 +36,7 @@ function ProjectCard({ project }: ProjectCardProps) {
           })}
         </div>
       </div>
-      <div className="size-[250px] absolute right-[-70px] rounded-full border border-input">
+      <div className="size-[250px] absolute right-[-70px] rounded-full border border-input max-sm:hidden">
         <Image
           src={project.src}
           alt="프로젝트 미리보기 이미지"

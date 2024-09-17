@@ -21,7 +21,7 @@ const ABOUT_ME = {
       link: "https://github.com/WooGi1020/MessageBloom",
       period: "2024-04-30 ~ 2024-05-17",
       tag: ["React", "SCSS"],
-      src: "/images/messageBloom.png",
+      src: "/images/project/messageBloom.png",
     },
     {
       name: "Wiki-Viki",
@@ -29,7 +29,7 @@ const ABOUT_ME = {
       link: "https://github.com/WooGi1020/wiki-viki",
       period: "2024-06-21 ~ 2024-07-07",
       tag: ["Next.js", "Tailwind", "Typescript"],
-      src: "/images/wikiViki.png",
+      src: "/images/project/wikiViki.png",
     },
     {
       name: "Coworkers",
@@ -37,7 +37,7 @@ const ABOUT_ME = {
       link: "https://github.com/WooGi1020/CCC-coworkers",
       period: "2024-07-29 ~ 2024-08-28",
       tag: ["Next.js", "Tailwind", "Typescript", "Shadcn", "Pusher"],
-      src: "/images/coworkers.png",
+      src: "/images/project/coworkers.png",
     },
   ],
 
