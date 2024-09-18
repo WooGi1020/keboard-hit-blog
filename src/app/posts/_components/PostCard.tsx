@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { Calendar, Clock } from "lucide-react";
+import dayjs from "dayjs";
 
 interface Post {
   post: { slug: string };
@@ -10,7 +11,7 @@ interface Post {
 
 async function PostCard({ post }: Post) {
   const data = getPostMeta(post);
-  console.log(data);
+  const formattedDate = dayjs(data.frontmatter.date);
 
   return (
     <Link
@@ -31,9 +32,12 @@ async function PostCard({ post }: Post) {
         <h2 className="text-lg font-semibold">{data.frontmatter.title}</h2>
         <p className="text-sm">{data.frontmatter.description}</p>
         <div className="mt-auto flex justify-between">
-          <div className="flex gap-2 items-center">
-            <Calendar className="size-5 relative top-[-1px]" />
-            <span>{new Date(data.frontmatter.date).toLocaleDateString()}</span>
+          <div className="flex gap-2">
+            <Calendar className="size-5" />
+            <span>{formattedDate?.format("YYYY년 MM월 DD일")}</span>
+          </div>
+          <div className="flex gap-2">
+            <Clock className="size-5" />
           </div>
         </div>
       </div>

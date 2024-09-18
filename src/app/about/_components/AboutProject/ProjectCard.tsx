@@ -17,7 +17,7 @@ interface ProjectCardProps {
 function ProjectCard({ project }: ProjectCardProps) {
   return (
     <a
-      className="relative flex gap-2 w-full h-[170px] border border-input rounded-xl p-4 pl-8 hover:bg-accent/80 overflow-hidden items-center"
+      className="group relative flex gap-2 w-full h-[170px] border border-input rounded-xl p-4 pl-8 hover:bg-accent/80 overflow-hidden items-center"
       href={project.link}
       target="_blank"
       rel="noopener noreferrer"
@@ -27,13 +27,14 @@ function ProjectCard({ project }: ProjectCardProps) {
         <p className="text-[12px]">{project.description}</p>
         <span className="text-[12px]">{project.period}</span>
         <div className="flex gap-2 mt-2 w-[500px] flex-wrap">
-          {project.tag.map((tag) => {
-            return (
-              <span key={tag} className="text-[12px] bg-input rounded-md px-2 py-1">
-                {tag}
-              </span>
-            );
-          })}
+          {project.tag.map((tag) => (
+            <span
+              key={tag}
+              className="group-hover:bg-background text-[12px] bg-input rounded-md px-2 py-1"
+            >
+              {tag}
+            </span>
+          ))}
         </div>
       </div>
       <div className="size-[250px] absolute right-[-70px] rounded-full border border-input max-sm:hidden">

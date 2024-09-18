@@ -1,13 +1,13 @@
 "use client";
 
 import React from "react";
-import animationData from "../../../public/lottie/animation.json";
-import whiteAnimationData from "../../../public/lottie/whiteAnimation.json";
 import Lottie from "lottie-react";
 import { cn } from "@/lib/utils";
 import { useTheme } from "next-themes";
+import animationData from "../../../public/lottie/animation.json";
+import whiteAnimationData from "../../../public/lottie/whiteAnimation.json";
 
-function lottieKeyboard({ className }: { className?: string }) {
+function LottieKeyboard({ className }: { className?: string }) {
   const { theme } = useTheme();
 
   return (
@@ -22,4 +22,4 @@ function lottieKeyboard({ className }: { className?: string }) {
   );
 }
 
-export default lottieKeyboard;
+export default LottieKeyboard;

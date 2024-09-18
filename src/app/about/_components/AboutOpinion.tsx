@@ -7,9 +7,11 @@ function AboutOpinion() {
     <>
       <span className="text-chart-1 mb-[-30px]">My Opinion</span>
       <div className="flex flex-col gap-2">
-        {descriptionArr.map((desc) => {
-          return <p className="text-lg font-medium">{desc}</p>;
-        })}
+        {descriptionArr.map((desc) => (
+          <p key={desc} className="text-lg font-medium">
+            {desc}
+          </p>
+        ))}
       </div>
     </>
   );

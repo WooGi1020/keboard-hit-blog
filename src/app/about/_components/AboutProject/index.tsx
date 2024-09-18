@@ -18,9 +18,9 @@ function AboutProject() {
     <>
       <span className="text-chart-1 mb-[-30px]">My Project</span>
       <div className="flex flex-col gap-4">
-        {projectArr.map((project) => {
-          return <ProjectCard key={project.name} project={project} />;
-        })}
+        {projectArr.map((project) => (
+          <ProjectCard key={project.name} project={project} />
+        ))}
         {ABOUT_ME.project.length > projectArr.length && (
           <Button variant="outline" className="w-fit mx-auto" onClick={handleMoreView}>
             더보기
