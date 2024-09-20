@@ -1,9 +1,9 @@
 import { getAllPosts, parsePosts } from "@/lib/getPosts";
-import React from "react";
 import dynamic from "next/dynamic";
-import dayjs from "dayjs";
-import { Calendar, Clock } from "lucide-react";
 import type { Params } from "@blogType";
+import PostMeta from "@/app/posts/[...slugs]/_components/PostMeta";
+import Image from "next/image";
+import PostContent from "@/app/posts/[...slugs]/_components/PostContent";
 
 const AnimationPlayer = dynamic(() => import("@/components/animation/LottieMonitor"), {
   ssr: false,
@@ -16,27 +16,25 @@ export async function generateStaticParams() {
 }
 
 async function postPage({ params }: { params: Params }) {
-  const postInfo = await parsePosts(params);
-  const formattedDate = postInfo && dayjs(postInfo.frontmatter.date);
+  const imagePath = params.slugs.join().replace(",", "/");
+  const postData = await parsePosts({ slugs: params.slugs });
 
   return (
-    <section className="flex flex-col gap-6">
+    <section className="flex flex-col gap-6 w-full max-w-[800px] mx-auto">
       <div className="min-h-[80px] mx-auto">
         <AnimationPlayer className="lottie-animation mx-auto relative bottom-5" />
       </div>
-      <div className="w-full">
-        <h2>{postInfo?.frontmatter.title}</h2>
-        <p>{postInfo?.frontmatter.description}</p>
+      <PostMeta params={params} />
+      <div className="border dark:border-gray-500 border-gray-400 mt-[-20px]" />
+      <div className="relative w-full h-[400px] mb-[20px]">
+        <Image
+          src={`/images/thumbnails/${imagePath}.jpg`}
+          alt="포스트 썸네일 이미지"
+          fill
+          className="object-cover"
+        />
       </div>
-      <div className="flex justify-between">
-        <div className="flex gap-2">
-          <Calendar className="size-5" />
-          <span>{formattedDate?.format("YYYY년 MM월 DD일")}</span>
-        </div>
-        <div className="flex gap-2">
-          <Clock className="size-5" />
-        </div>
-      </div>
+      <PostContent content={postData.content} />
     </section>
   );
 }
