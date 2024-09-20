@@ -46,7 +46,7 @@ export const parsePosts = async (params: Params) => {
 export const getPostMeta = ({ slug }: { slug: string }) => {
   const metaPath = `${POST_PATH}/${slug}.mdx`;
   const mdFile = fs.readFileSync(metaPath, "utf-8");
-  const { data: frontmatter } = matter(mdFile);
+  const { data: frontmatter, content } = matter(mdFile);
 
-  return { frontmatter };
+  return { frontmatter, content };
 };
