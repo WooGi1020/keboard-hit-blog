@@ -9,6 +9,7 @@ function ThemeChangeButton() {
 
   return (
     <Button
+      aria-label="테마 색상 변경버튼"
       variant="outline"
       size="icon"
       onClick={() => {
