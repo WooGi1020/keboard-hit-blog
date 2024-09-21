@@ -1,9 +1,10 @@
+import components from "@/app/posts/[...slugs]/_components/MarkdownComponent";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 
 async function PostContent({ content }: { content: string }) {
   return (
-    <div className="prose dark:prose-dark">
+    <div className="prose dark:prose-dark w-full max-w-[800px]">
       <MDXRemote
         source={content}
         options={{
@@ -13,6 +14,7 @@ async function PostContent({ content }: { content: string }) {
             format: "mdx",
           },
         }}
+        components={components}
       />
     </div>
   );
