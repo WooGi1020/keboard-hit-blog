@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Project {
   name: string;
@@ -16,7 +17,7 @@ interface ProjectCardProps {
 
 function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <a
+    <Link
       className="group relative flex gap-2 w-full h-[170px] border border-input rounded-xl p-4 pl-8 hover:bg-accent/80 overflow-hidden items-center"
       href={project.link}
       target="_blank"
@@ -47,7 +48,7 @@ function ProjectCard({ project }: ProjectCardProps) {
           sizes="100%"
         />
       </div>
-    </a>
+    </Link>
   );
 }
 
