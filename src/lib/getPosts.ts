@@ -3,6 +3,7 @@ import path from "path";
 import fs from "fs";
 import matter from "gray-matter";
 import type { Params } from "@blogType";
+import { cache } from "react";
 
 const BASE_PATH = "src/posts";
 const POST_PATH = path.join(process.cwd(), BASE_PATH);
@@ -16,7 +17,7 @@ export const getAllPosts = async () => {
   return paths;
 };
 
-export const getPosts = async (params: Params) => {
+export const getPosts = cache(async (params: Params) => {
   const filePaths = await getAllPosts();
   const { slugs } = params;
   const slug = `${slugs.join("/")}`;
@@ -24,7 +25,7 @@ export const getPosts = async (params: Params) => {
   const postFind = filePaths.find((filePath) => filePath.slug === slug);
 
   return postFind;
-};
+});
 
 export const parsePosts = async (params: Params) => {
   const post = await getPosts(params);
