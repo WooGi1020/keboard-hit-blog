@@ -4,6 +4,7 @@ import type { Params } from "@blogType";
 import PostMeta from "@/app/posts/[...slugs]/_components/PostMeta";
 import Image from "next/image";
 import PostContent from "@/app/posts/[...slugs]/_components/PostContent";
+import { notFound } from "next/navigation";
 
 const AnimationPlayer = dynamic(() => import("@/components/animation/LottieMonitor"), {
   ssr: false,
@@ -16,6 +17,8 @@ export async function generateStaticParams() {
 }
 
 async function postPage({ params }: { params: Params }) {
+  if (!params) return notFound();
+
   const imagePath = params.slugs.join().replace(",", "/");
   const postData = await parsePosts({ slugs: params.slugs });
 
