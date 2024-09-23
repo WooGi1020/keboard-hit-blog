@@ -1,5 +1,7 @@
 import type { Config } from "tailwindcss";
 
+import { spacing } from "tailwindcss/defaultTheme";
+
 const config: Config = {
   darkMode: ["class"],
   content: [
@@ -9,6 +11,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      typography: () => ({
+        DEFAULT: {
+          css: {
+            "h1,h2,h3,h4": {
+              "scroll-margin-top": spacing[20],
+            },
+          },
+        },
+      }),
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
