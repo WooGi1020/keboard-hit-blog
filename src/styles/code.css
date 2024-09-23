@@ -1,0 +1,10 @@
+@tailwind base;
+
+pre {
+  overflow-x: auto;
+  padding: 1rem 0;
+}
+
+pre [data-line] {
+  padding: 4px;
+}
