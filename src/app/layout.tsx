@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "@/styles/globals.css";
 import localFont from "next/font/local";
 import Header from "@/components/header/Header";
 import { ThemeProvider } from "@/components/themes/theme-provider";
+import { Toaster } from "@/components/ui/toaster";
 
 const pretendardFont = localFont({
   src: "../../public/fonts/PretendardVariable.woff2",
@@ -23,10 +24,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" suppressHydrationWarning>
-      <body className={pretendardFont.className}>
+      <body className={`${pretendardFont.className}`}>
         <ThemeProvider attribute="class" defaultTheme="dark">
           <Header />
-          <main className="my-[80px] max-w-[1032px] mx-auto px-[16px] w-full ">{children}</main>
+          <main className="my-[80px] w-full ">{children}</main>
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>
