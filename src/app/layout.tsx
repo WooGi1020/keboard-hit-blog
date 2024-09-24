@@ -27,7 +27,7 @@ export default function RootLayout({
       <body className={`${pretendardFont.className}`}>
         <ThemeProvider attribute="class" defaultTheme="dark">
           <Header />
-          <main className="my-[80px] w-full ">{children}</main>
+          <main className="my-[80px] w-full px-[16px]">{children}</main>
           <Toaster />
         </ThemeProvider>
       </body>
