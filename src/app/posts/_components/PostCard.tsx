@@ -26,6 +26,7 @@ async function PostCard({ post }: Post) {
           alt="포스트 썸네일 이미지"
           fill
           priority
+          sizes="100%"
           className="object-cover rounded-t-xl"
         />
       </div>
