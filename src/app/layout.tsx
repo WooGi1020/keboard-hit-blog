@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import Header from "@/components/header/Header";
 import { ThemeProvider } from "@/components/themes/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
+import Footer from "@/components/footer/Footer";
 
 const pretendardFont = localFont({
   src: "../../public/fonts/PretendardVariable.woff2",
@@ -27,7 +28,8 @@ export default function RootLayout({
       <body className={`${pretendardFont.className}`}>
         <ThemeProvider attribute="class" defaultTheme="dark">
           <Header />
-          <main className="my-[80px] w-full px-[16px]">{children}</main>
+          <main className="my-[80px] w-full px-[16px] main">{children}</main>
+          <Footer />
           <Toaster />
         </ThemeProvider>
       </body>
