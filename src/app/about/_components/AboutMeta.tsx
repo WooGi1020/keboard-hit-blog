@@ -17,7 +17,7 @@ function AboutMeta() {
         </div>
         <Avatar className="ml-3">
           <AvatarImage src="https://avatars.githubusercontent.com/u/113000290?v=4" />
-          <AvatarFallback>우기</AvatarFallback>
+          <AvatarFallback>코딩기</AvatarFallback>
         </Avatar>
       </div>
     </>
