@@ -10,8 +10,8 @@ import Image from "next/image";
 
 async function PostContent({ content, imagePath }: { content: string; imagePath: string }) {
   return (
-    <article className="prose dark:prose-dark w-full max-w-[800px]">
-      <div className="relative w-full h-[400px] aspect-[16/9] mb-[60px]">
+    <article className="prose dark:prose-dark w-full max-w-[950px]">
+      <div className="relative w-full h-[500px] aspect-[16/9] mb-[60px]">
         <Image
           src={`/images/thumbnails/${imagePath}.jpg`}
           alt="포스트 썸네일 이미지"
