@@ -1,5 +1,5 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import ABOUT_ME from "@/data/ABOUT_ME";
+import ABOUT_ME from "@/constant/ABOUT_ME";
 import { MapIcon } from "lucide-react";
 
 function AboutMeta() {

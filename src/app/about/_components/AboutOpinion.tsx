@@ -1,4 +1,4 @@
-import ABOUT_ME from "@/data/ABOUT_ME";
+import ABOUT_ME from "@/constant/ABOUT_ME";
 
 function AboutOpinion() {
   const descriptionArr = ABOUT_ME.description.split("\n");

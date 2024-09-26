@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import ABOUT_ME from "@/data/ABOUT_ME";
+import ABOUT_ME from "@/constant/ABOUT_ME";
 import { Button } from "@/components/ui/button";
 import ProjectCard from "@/app/about/_components/AboutProject/ProjectCard";
 
