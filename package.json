@@ -2,9 +2,11 @@
   "name": "keboard_hit_blog",
   "version": "0.1.0",
   "private": true,
+  "homepage": " https://woogi1020.github.io/",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export",
+    "serve": "npx http-server out",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write .",
