@@ -11,7 +11,9 @@ const AnimationPlayer = dynamic(() => import("@/components/animation/LottieMonit
 
 export async function generateStaticParams() {
   const posts = await getAllPosts();
-  const slugs = posts.map((post) => post.slug);
+  const slugs = posts.map((post) => ({
+    slugs: [post.slug],
+  }));
   return slugs;
 }
 
