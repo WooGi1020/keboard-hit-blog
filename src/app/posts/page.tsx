@@ -1,7 +1,7 @@
 import Posts from "@/app/posts/_components/Posts";
 import dynamic from "next/dynamic";
 
-const AnimationPlayer = dynamic(() => import("@/components/animation/LottieKeyboard"), {
+const AnimationPlayer = dynamic(() => import("../../components/animation/LottieKeyboard"), {
   ssr: false,
 });
 
