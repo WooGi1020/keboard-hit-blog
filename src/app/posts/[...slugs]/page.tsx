@@ -5,7 +5,7 @@ import PostMeta from "@/app/posts/[...slugs]/_components/PostMeta";
 import PostContent from "@/app/posts/[...slugs]/_components/PostContent";
 import { notFound } from "next/navigation";
 
-const AnimationPlayer = dynamic(() => import("../../../components/animation/LottieMonitor"), {
+const AnimationPlayer = dynamic(() => import("@/components/animation/lottieMonitor"), {
   ssr: false,
 });
 
