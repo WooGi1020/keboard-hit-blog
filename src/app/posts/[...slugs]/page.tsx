@@ -22,14 +22,14 @@ async function postPage({ params }: { params: Params }) {
   const postData = await parsePosts({ slugs: params.slugs });
 
   return (
-    <section className="flex flex-col gap-6 w-full max-w-[950px] mx-auto">
+    <>
       <div className="min-h-[80px] mx-auto">
         <AnimationPlayer className="lottie-animation mx-auto relative bottom-5" />
       </div>
       <PostMeta params={params} />
       <div className="border dark:border-gray-500 border-gray-400 mt-[-20px]" />
       <PostContent content={postData.content} imagePath={imagePath} />
-    </section>
+    </>
   );
 }
 

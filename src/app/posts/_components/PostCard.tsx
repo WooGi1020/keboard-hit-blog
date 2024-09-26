@@ -32,8 +32,8 @@ async function PostCard({ post }: Post) {
       </div>
       <div className="flex flex-col gap-2 p-4 h-[200px]">
         <span className="text-chart-1">{data.frontmatter.tag}</span>
-        <h2 className="text-lg font-semibold">{data.frontmatter.title}</h2>
-        <p className="text-sm">{data.frontmatter.description}</p>
+        <h2 className="text-xl font-semibold">{data.frontmatter.title}</h2>
+        <p className="text-sm dark:text-gray-400 text-gray-500">{data.frontmatter.description}</p>
         <div className="mt-auto flex justify-between">
           <div className="flex gap-2">
             <Calendar className="size-5 items-center" />
