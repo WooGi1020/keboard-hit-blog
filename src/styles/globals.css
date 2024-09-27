@@ -69,7 +69,7 @@
     @apply bg-background text-foreground transition-colors duration-100 ease-in-out;
   }
   .main {
-    min-height: calc(100vh - 310px);
+    min-height: calc(100vh - 250px);
   }
 }
 
