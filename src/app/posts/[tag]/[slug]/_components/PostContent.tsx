@@ -1,4 +1,4 @@
-import components from "@/app/posts/[...slugs]/_components/MarkdownComponent";
+import components from "@/app/posts/[tag]/[slug]/_components/MarkdownComponent";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";

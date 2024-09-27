@@ -1,4 +1,4 @@
-import CustomPre from "@/app/posts/[...slugs]/_components/CustomPre";
+import CustomPre from "@/app/posts/[tag]/[slug]/_components/CustomPre";
 import Link from "next/link";
 import type { AnchorHTMLAttributes, DetailedHTMLProps, ImgHTMLAttributes } from "react";
 
