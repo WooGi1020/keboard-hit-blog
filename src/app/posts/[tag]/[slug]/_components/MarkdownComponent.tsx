@@ -1,6 +1,11 @@
 import CustomPre from "@/app/posts/[tag]/[slug]/_components/CustomPre";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import type { AnchorHTMLAttributes, DetailedHTMLProps, ImgHTMLAttributes } from "react";
+
+const CustomToc = dynamic(() => import("@/app/posts/[tag]/[slug]/_components/CustomToc"), {
+  ssr: false,
+});
 
 function CustomLink({
   children,
@@ -28,6 +33,7 @@ const components = {
   a: CustomLink,
   img: CustomImg,
   pre: CustomPre,
+  TOC: CustomToc,
 };
 
 export default components;

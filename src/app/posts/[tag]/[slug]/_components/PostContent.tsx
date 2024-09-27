@@ -3,15 +3,14 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import remarkToc from "remark-toc";
 import remarkBreak from "remark-breaks";
 import rehypePrettyCode from "rehype-pretty-code";
 import Image from "next/image";
 
 async function PostContent({ content, imagePath }: { content: string; imagePath: string }) {
   return (
-    <article className="prose dark:prose-dark w-full max-w-[950px]">
-      <div className="relative w-full h-[500px] aspect-[16/9] mb-[60px]">
+    <article className="relative prose dark:prose-dark w-full max-w-[950px]">
+      <div className="relative w-full h-[500px] aspect-[16/9] mb-[80px]">
         <Image
           src={`/images/thumbnails/${imagePath}.jpg`}
           alt="포스트 썸네일 이미지"
@@ -25,17 +24,7 @@ async function PostContent({ content, imagePath }: { content: string; imagePath:
         source={content}
         options={{
           mdxOptions: {
-            remarkPlugins: [
-              remarkGfm,
-              [
-                remarkToc,
-                {
-                  heading: "toc",
-                  maxDepth: 2,
-                },
-              ],
-              remarkBreak,
-            ],
+            remarkPlugins: [remarkGfm, remarkBreak],
             rehypePlugins: [
               [
                 rehypeSlug,
