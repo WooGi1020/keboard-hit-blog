@@ -74,6 +74,11 @@
 }
 
 @layer utilities {
+  .ul-toc {
+    box-shadow:
+      0 5px 8px rgba(0, 0, 0, 0.05),
+      0 10px 15px rgba(0, 0, 0, 0.03);
+  }
   .lottie-animation {
     animation: fall 0.7s ease-in-out;
   }

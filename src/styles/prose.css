@@ -1,33 +1,5 @@
 @tailwind base;
 
-#toc {
-  display: none;
-}
-
-#toc + ul {
-  @apply min-[1600px]:sticky min-[1600px]:top-[700px] min-[1600px]:w-[1200px] min-[1600px]:text-sm mb-[60px] min-[1600px]:h-0;
-  list-style: none;
-}
-
-#toc + ul > li {
-  @apply min-[1600px]:ml-auto min-[1600px]:max-w-[300px] min-[1600px]:w-fit min-[1600px]:border border-input rounded-md p-4;
-}
-
-@media (min-width: 1600px) {
-  #toc + ul {
-    transform: translateY(-500px);
-  }
-  #toc + ul > li {
-    box-shadow:
-      0 5px 8px rgba(0, 0, 0, 0.05),
-      0 10px 15px rgba(0, 0, 0, 0.03);
-  }
-}
-
-#toc + ul ul {
-  list-style: disc;
-}
-
 .prose * {
   @apply text-primary;
 }
