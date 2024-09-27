@@ -7,7 +7,7 @@ function Footer() {
         className="max-w-[982px] px-[16px] mx-auto w-full
       flex flex-col gap-2 items-center"
       >
-        <p className="text-lg">
+        <p className="text-lg text-center">
           코딩기의 <span className="text-chart-2">Next.js</span> 블로그: 키보드 두들기며 먹고살기
           ver.1
         </p>
