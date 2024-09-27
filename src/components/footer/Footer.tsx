@@ -2,7 +2,7 @@ import FooterNav from "@/components/footer/FooterNav";
 
 function Footer() {
   return (
-    <footer className="w-full h-[150px] p-5 flex flex-col justify-center">
+    <footer className="w-full h-[250px] p-10 flex flex-col justify-start border-2 border-t-input">
       <div
         className="max-w-[982px] px-[16px] mx-auto w-full
       flex flex-col gap-2 items-center"
