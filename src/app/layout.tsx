@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import "@/styles/globals.css";
 import localFont from "next/font/local";
 import Header from "@/components/header/Header";
@@ -12,11 +11,6 @@ const pretendardFont = localFont({
   display: "swap",
   variable: "--font-pretendard",
 });
-
-export const metadata: Metadata = {
-  title: "키보드 두들기며 먹고살기",
-  description: "코딩기가 두들기는 블로그",
-};
 
 export default function RootLayout({
   children,
