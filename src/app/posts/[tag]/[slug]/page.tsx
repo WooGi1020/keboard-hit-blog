@@ -4,10 +4,22 @@ import type { Params } from "@blogType";
 import PostMeta from "@/app/posts/[tag]/[slug]/_components/PostMeta";
 import PostContent from "@/app/posts/[tag]/[slug]/_components/PostContent";
 import { notFound } from "next/navigation";
+import Giscus from "@/components/giscus/Giscus";
+import { getMetaData } from "@/lib/getMetaData";
 
 const AnimationPlayer = dynamic(() => import("@/components/animation/lottieMonitor"), {
   ssr: false,
 });
+
+export async function generateMetadata({ params }: { params: Params }) {
+  const { frontmatter } = await parsePosts({ tag: params.tag, slug: params.slug });
+  const title = `${frontmatter.title}`;
+  const description = `${frontmatter.description}`;
+  const asPath = `/posts/${params.tag}${params.slug}`;
+  const ogImage = `/images/thumbnails/${params.tag}/${params.slug}`;
+
+  return getMetaData({ title, description, asPath, ogImage });
+}
 
 export async function generateStaticParams() {
   const posts = await getPostsByTag();
@@ -31,6 +43,7 @@ async function postPage({ params }: { params: Params }) {
       <PostMeta params={params} />
       <div className="border dark:border-gray-500 border-gray-400 mt-[-20px]" />
       <PostContent content={postData.content} imagePath={imagePath} />
+      <Giscus />
     </section>
   );
 }
