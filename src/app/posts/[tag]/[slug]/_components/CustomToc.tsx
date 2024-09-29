@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { StepBack, CopySlashIcon } from "lucide-react";
+import { StepBack, CopySlashIcon, AppWindowIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { toast } from "@/hooks/use-toast";
 import useMediaQuery from "@/hooks/useMediaQuery";
@@ -18,7 +18,7 @@ interface TOCItem {
 function CustomToc() {
   const [tocItems, setTocItems] = useState<TOCItem[]>([]);
   const router = useRouter();
-  const isWebScreen = useMediaQuery("(max-width: 1600px)");
+  const isWebScreen = useMediaQuery("(max-width: 1550px)");
 
   const handleClickBack = () => {
     router.push("/posts/all");
@@ -35,6 +35,12 @@ function CustomToc() {
         toast({ description: "게시글 링크 복사에 실패했습니다." });
       }
     }
+  };
+
+  const handleClickToComment = () => {
+    router.push("#giscus-comment-box", {
+      scroll: true,
+    });
   };
 
   useEffect(() => {
@@ -68,32 +74,60 @@ function CustomToc() {
   }
 
   return (
-    <aside className="absolute top-0 right-[-350px] h-full">
-      <div className="flex flex-col pt-3 pb-1 px-5 border border-input rounded-md sticky top-[250px] ul-toc max-w-[330px]">
+    <aside className="absolute top-0 right-[-300px] h-full">
+      <div className="flex flex-col px-5 border border-input rounded-md sticky top-[250px] ul-toc max-w-[330px]">
         <div className="w-full border-b-2 border-input">
           <p className="text-center text-lg text-chart-1">게시글 키워드</p>
         </div>
-        <ul className="truncate">
+        <ul className="pl-2">
           {tocItems.map((item) => (
-            <li key={item.id} style={{ marginLeft: (item.level - 1) * 20 }}>
-              <Link href={`#${item.id}`} className="hover:text-gray-600 dark:hover:text-gray-300">
+            <li
+              key={item.id}
+              style={{ marginLeft: (item.level - 1) * 20 }}
+              className="whitespace-normal list-none"
+            >
+              <Link
+                href={`#${item.id}`}
+                className={`hover:text-gray-600 dark:hover:text-gray-300 ${item.level === 2 && "text-sm"}`}
+              >
                 {item.text}
               </Link>
             </li>
           ))}
         </ul>
-        <div className="flex justify-center gap-10 border-t-2 border-input p-5">
+        <div className="flex justify-center gap-5 border-t-2 border-input py-3">
           <div className="flex flex-col gap-2 items-center">
-            <Button variant="outline" size="icon" onClick={handleClickBack}>
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={handleClickBack}
+              aria-label="뒤로가기 버튼"
+            >
               <StepBack />
             </Button>
             <span className="text-sm">뒤로 가기</span>
           </div>
           <div className="flex flex-col gap-2 items-center">
-            <Button variant="outline" size="icon" onClick={handleClickCopy}>
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={handleClickCopy}
+              aria-label="링크 복사하기 버튼"
+            >
               <CopySlashIcon className="size-5" />
             </Button>
             <span className="text-sm">링크 복사</span>
+          </div>
+          <div className="flex flex-col gap-2 items-center">
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={handleClickToComment}
+              aria-label="댓글 바로가기 버튼"
+            >
+              <AppWindowIcon className="size-5" />
+            </Button>
+            <span className="text-sm">댓글 보기</span>
           </div>
         </div>
       </div>
