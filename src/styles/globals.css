@@ -60,13 +60,18 @@
     --chart-5: 340 75% 55%;
   }
 }
+
+/* 2. 기본 스타일 설정 */
 @layer base {
   * {
     @apply border-border;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     @apply bg-background text-foreground;
-    @apply bg-background text-foreground transition-colors duration-100 ease-in-out;
+    @apply transition-colors duration-100 ease-in-out;
   }
   .main {
     min-height: calc(100vh - 250px);
@@ -82,7 +87,6 @@
   .lottie-animation {
     animation: fall 0.7s ease-in-out;
   }
-
   @keyframes fall {
     0% {
       transform: translateY(-100px);
@@ -91,14 +95,13 @@
       transform: translateY(10px);
     }
     100% {
-      transfrom: translateY(0px);
+      transform: translateY(0px);
     }
   }
 
   .text-animation {
     animation: bounce 2s ease-in-out infinite;
   }
-
   @keyframes bounce {
     0% {
       transform: translateY(0px);
@@ -107,7 +110,7 @@
       transform: translateY(-10px);
     }
     100% {
-      transfrom: translateY(0px);
+      transform: translateY(0px);
     }
   }
 
@@ -128,7 +131,6 @@
   .post {
     animation: show 0.7s ease;
   }
-
   @keyframes show {
     0% {
       opacity: 0.7;

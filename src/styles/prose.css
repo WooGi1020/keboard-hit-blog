@@ -31,10 +31,6 @@
   @apply no-underline;
 }
 
-/* .prose code:not([data-language]) {
-  @apply py-1 px-2 rounded-md mx-1 text-primary bg-transparent;
-} */
-
 .prose code:not([data-language])::before,
 .prose code:not([data-language])::after {
   content: "";
