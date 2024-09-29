@@ -71,6 +71,24 @@ export const getPostMeta = ({ slug }: { slug: string }) => {
   return { frontmatter, content };
 };
 
+export const getAllPostUrl = () => {
+  const paths: string[] = sync(`${POST_PATH}/*/*.mdx`);
+
+  const posts = paths.map((onePath) => {
+    const formattedPath = onePath.replace(".mdx", "").slice(4);
+    const realPath = formattedPath.replace(/\\/g, "/");
+
+    const { data: frontmatter } = matter(fs.readFileSync(onePath, "utf-8"));
+
+    return {
+      path: realPath,
+      date: frontmatter.date,
+    };
+  });
+
+  return posts;
+};
+
 export const getAllTag = () => {
   const tagPaths: string[] = sync(`${POST_PATH}/*`); // 모든 태그 폴더 경로 가져오기
   const allTagCount: number = sync(`${POST_PATH}/*/*.mdx`).length;
