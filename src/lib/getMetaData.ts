@@ -22,6 +22,9 @@ export const getMetaData = (metadataProps?: GenerateMetadataProps) => {
       canonical: PAGE_URL,
     },
     title: TITLE,
+    icons: {
+      icon: "/favicon/favicon.ico",
+    },
     description: DESCRIPTION,
     keywords: [...META_DATA.keyword],
     openGraph: {
