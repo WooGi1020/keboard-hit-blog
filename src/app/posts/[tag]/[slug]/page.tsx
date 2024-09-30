@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: Params }) {
   const title = `${frontmatter.title}`;
   const description = `${frontmatter.description}`;
   const asPath = `/posts/${params.tag}${params.slug}`;
-  const ogImage = `/images/thumbnails/${params.tag}/${params.slug}`;
+  const ogImage = `/images/thumbnails/${params.tag}/${params.slug}.jpg`;
 
   return getMetaData({ title, description, asPath, ogImage });
 }
