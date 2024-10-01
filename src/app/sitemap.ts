@@ -4,10 +4,16 @@ import type { MetadataRoute } from "next";
 // 기본 사이트맵 설정
 const defaultSiteMaps: MetadataRoute.Sitemap = [
   {
-    url: "https://keyboard-hit-blog/posts/all",
+    url: "https://keyboard-hit-blog/",
     lastModified: new Date(),
     changeFrequency: "daily",
     priority: 1,
+  },
+  {
+    url: "https://keyboard-hit-blog/posts/all",
+    lastModified: new Date(),
+    changeFrequency: "daily",
+    priority: 0.8,
   },
   {
     url: "https://keyboard-hit-blog/about",
