@@ -3,19 +3,13 @@ import type { MetadataRoute } from "next";
 
 const defaultSiteMaps: MetadataRoute.Sitemap = [
   {
-    url: "https://keyboard-hit-blog",
+    url: "https://keyboard-hit-blog/posts/all",
     lastModified: new Date(),
     changeFrequency: "daily",
     priority: 1,
   },
   {
     url: "https://keyboard-hit-blog/about",
-    lastModified: new Date(),
-    changeFrequency: "daily",
-    priority: 0.8,
-  },
-  {
-    url: "https://keyboard-hit-blog/posts/all",
     lastModified: new Date(),
     changeFrequency: "daily",
     priority: 0.8,
