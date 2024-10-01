@@ -4,6 +4,8 @@ import Header from "@/components/header/Header";
 import { ThemeProvider } from "@/components/themes/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import Footer from "@/components/footer/Footer";
+import type { Metadata } from "next";
+import META_DATA from "@/constant/META_DATA";
 
 const pretendardFont = localFont({
   src: "../../public/fonts/PretendardVariable.woff2",
@@ -11,6 +13,12 @@ const pretendardFont = localFont({
   display: "swap",
   variable: "--font-pretendard",
 });
+
+export const metadata: Metadata = {
+  verification: {
+    google: META_DATA.googleVerification,
+  },
+};
 
 export default function RootLayout({
   children,

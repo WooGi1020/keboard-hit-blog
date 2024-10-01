@@ -38,9 +38,6 @@ export const getMetaData = (metadataProps?: GenerateMetadataProps) => {
         url: OG_IMAGE,
       },
     },
-    verification: {
-      google: META_DATA.googleVerification,
-    },
     twitter: {
       title: TITLE,
       description: DESCRIPTION,
