@@ -1,39 +1,45 @@
 import { getAllPostUrl } from "@/lib/getPosts";
-import type { MetadataRoute } from "next";
+import type { NextApiRequest, NextApiResponse } from "next";
 
-// 기본 사이트맵 설정
-const defaultSiteMaps: MetadataRoute.Sitemap = [
-  {
-    url: "https://keyboard-hit-blog/",
-    lastModified: new Date(),
-    changeFrequency: "daily",
-    priority: 1,
-  },
-  {
-    url: "https://keyboard-hit-blog/posts/all",
-    lastModified: new Date(),
-    changeFrequency: "daily",
-    priority: 1,
-  },
-  {
-    url: "https://keyboard-hit-blog/about",
-    lastModified: new Date(),
-    changeFrequency: "daily",
-    priority: 0.8,
-  },
-];
+export default function handler(req: NextApiRequest, res: NextApiResponse) {
+  const posts = getAllPostUrl();
 
-// 게시물 URL 동적 생성
-const postMetadata = getAllPostUrl();
+  // 사이트맵 URL 및 각 게시물의 URL 생성
+  const defaultSiteMaps = [
+    {
+      url: "https://keyboard-hit-blog/",
+      lastModified: new Date(),
+    },
+    {
+      url: "https://keyboard-hit-blog/posts/all",
+      lastModified: new Date(),
+    },
+    {
+      url: "https://keyboard-hit-blog/about",
+      lastModified: new Date(),
+    },
+  ];
 
-// 사이트맵 생성 함수
-export default function sitemap(): MetadataRoute.Sitemap {
-  const sitemapFromPosts: MetadataRoute.Sitemap = postMetadata.map((post) => ({
+  const sitemapFromPosts = posts.map((post) => ({
     url: `https://keyboard-hit-blog/${post.path}`,
     lastModified: new Date(post.date),
-    changeFrequency: "daily",
-    priority: 0.7,
   }));
 
-  return [...defaultSiteMaps, ...sitemapFromPosts];
+  // XML 포맷으로 변환
+  const sitemap = [...defaultSiteMaps, ...sitemapFromPosts]
+    .map(
+      (site) => `<url>
+        <loc>${site.url}</loc>
+        <lastmod>${site.lastModified}</lastmod>
+      </url>`
+    )
+    .join("");
+
+  // 응답 헤더에 XML 타입 지정
+  res.setHeader("Content-Type", "application/xml");
+  res.write(`<?xml version="1.0" encoding="UTF-8"?>
+  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    ${sitemap}
+  </urlset>`);
+  res.end();
 }
