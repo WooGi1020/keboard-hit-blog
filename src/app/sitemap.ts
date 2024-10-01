@@ -20,7 +20,7 @@ const postMetadata = getAllPostUrl();
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const sitemapFromPosts: MetadataRoute.Sitemap = postMetadata.map((post) => ({
-    url: `https://keyboard-hit-blog/posts/${post.path}`,
+    url: `https://keyboard-hit-blog/${post.path}`,
     lastModified: new Date(post.date),
     changeFrequency: "daily",
     priority: 0.7,
