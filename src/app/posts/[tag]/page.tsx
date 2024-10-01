@@ -10,8 +10,8 @@ const AnimationPlayer = dynamic(() => import("@/components/animation/lottieKeybo
 });
 
 export async function generateMetadata({ params }: { params: { tag: string } }) {
-  const title = `포스트 목록: ${params.tag}`;
-  const description = `포스트 중 ${params.tag}의 목록입니다.`;
+  const title = ``;
+  const description = `Post 목록 - ${params.tag}`;
   const asPath = `/posts/${params.tag}`;
   const ogImage = `/images/opgraph/op-image.png`;
 
