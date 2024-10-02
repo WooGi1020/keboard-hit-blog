@@ -8,11 +8,11 @@ function Footer() {
       flex flex-col gap-2 items-center"
       >
         <p className="text-lg text-center">
-          코딩기의 <span className="text-chart-2">Next.js</span> 블로그: 키보드 두들기며 먹고살기
+          우기의 <span className="text-chart-2">Next.js</span> 블로그: 키보드 두들기며 먹고살기
           ver.1
         </p>
         <FooterNav />
-        <p className="text-sm">(C) 2024. 코딩기. All rights reserved.</p>
+        <p className="text-sm">(C) 2024. 우기. All rights reserved.</p>
       </div>
     </footer>
   );
