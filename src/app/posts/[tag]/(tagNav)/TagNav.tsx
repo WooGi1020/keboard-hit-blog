@@ -8,7 +8,7 @@ export function TagNav({ tagInfos, allTagCount }: { tagInfos: TagInfos; allTagCo
   const pathname = usePathname();
 
   return (
-    <nav className="flex items-center mx-auto max-w-[700px] overflow-x-auto px-2 whitespace-nowrap gap-1 text-lg border-b-2 border-input pb-3">
+    <nav className="flex items-center mx-auto max-w-[350px] max-[500px]:max-w-[700px] overflow-x-auto px-2 whitespace-nowrap gap-1 text-lg border-b-2 border-input pb-3">
       <Link
         className={`text-chart-5 px-2 py-1 rounded-md hover:bg-input ${pathname === "/posts/all" && "bg-input"}`}
         href="/posts/all"
