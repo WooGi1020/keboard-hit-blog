@@ -10,14 +10,15 @@ import Image from "next/image";
 async function PostContent({ content, imagePath }: { content: string; imagePath: string }) {
   return (
     <article className="relative prose dark:prose-dark w-full max-w-[950px]">
-      <div className="relative w-full h-[500px] aspect-[16/9] mb-[80px]">
+      <div className="relative w-full h-auto mb-[80px]">
         <Image
           src={`/images/thumbnails/${imagePath}.jpg`}
           alt="포스트 썸네일 이미지"
-          fill
+          width={950}
+          height={281}
           priority
           sizes="100%"
-          className="object-cover"
+          className="object-contain"
         />
       </div>
       <MDXRemote
