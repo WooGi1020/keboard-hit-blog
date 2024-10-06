@@ -14,11 +14,15 @@ interface TOCItem {
   level: number;
 }
 
+const MOBILE_MAX_WIDTH = "600px";
+const WEB_MAX_WIDTH = "1550px";
+
 // TOC 컴포넌트
 function CustomToc() {
   const [tocItems, setTocItems] = useState<TOCItem[]>([]);
   const router = useRouter();
-  const isWebScreen = useMediaQuery("(max-width: 1550px)");
+  const isWebScreen = useMediaQuery(`(max-width: ${WEB_MAX_WIDTH})`);
+  const isMobileScreen = useMediaQuery(`(max-width: ${MOBILE_MAX_WIDTH}`);
 
   const handleClickBack = () => {
     router.push("/posts/all");
@@ -55,6 +59,31 @@ function CustomToc() {
 
     setTocItems(filteredUl);
   }, []);
+
+  if (isMobileScreen) {
+    return (
+      <div className="fixed bottom-3 right-3 flex flex-col gap-3 z-50">
+        <Button
+          variant="outline"
+          className="border border-primary"
+          size="icon"
+          onClick={handleClickCopy}
+          aria-label="링크 복사하기 버튼"
+        >
+          <CopySlashIcon className="size-5" />
+        </Button>
+        <Button
+          variant="outline"
+          className="border border-primary"
+          size="icon"
+          onClick={handleClickToComment}
+          aria-label="댓글 바로가기 버튼"
+        >
+          <AppWindowIcon className="size-5" />
+        </Button>
+      </div>
+    );
+  }
 
   if (isWebScreen) {
     return (
